@@ -1,0 +1,9 @@
+body        { font-family: sans-serif; background: #eee; }
+.logo       { display: block; margin-left: auto; margin-right: auto;
+              border: 1px solid #021a40;                 }
+p.description          { margin-left: auto; margin-right: auto; width: 25em }
+.center_screen { margin-left: auto; margin-right: auto; width: 10em }
+.options { margin-left: auto; margin-right: auto; width: 20 }
+
+label { display: inline-block; float:left; clear: left; width: 250px;}
+input.options { display: inline-block; float: right; text-align: center; width: 5em; height: auto}
