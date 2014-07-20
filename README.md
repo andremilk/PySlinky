@@ -6,6 +6,11 @@ It was named after a very popular [toy](http://en.wikipedia.org/wiki/Slinky) whi
 The idea here is to stress the app enough to trigger autoscaling watches either by using the database or simply the server load. 
 A reverse proxy will be used to access this application.
 
+Requirements
+======
+
+*  [psutil](https://github.com/giampaolo/psutil)
+
 Services and Contents
 =======
 
