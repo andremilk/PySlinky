@@ -3,7 +3,13 @@ import multiprocessing
 import psutil
 
 loads = []
-def load_stress(x):
+def stress(expression):
+    def load_stress(x):
+        i = expression(x)
+        return psutil.cpu_percent(interval=0.1)
+    return load_stress
+
+def _stress(x):
     i = x**x
     return psutil.cpu_percent(interval=0.1)
 
@@ -16,5 +22,9 @@ def get_low_high_average(results):
 if __name__ == '__main__':
     no_of_cores = multiprocessing.cpu_count()
     p = Pool(processes=no_of_cores)
-    k = p.map(load_stress, range(100))
+    l = map(stress(lambda x: x**x), range(100))
+    print 'l = ', l
+    get_low_high_average(l)
+    k = p.map(_stress, range(100))
+    print 'k = ', k
     get_low_high_average(k)
