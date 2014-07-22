@@ -10,6 +10,7 @@ Requirements
 ======
 
 *  [psutil](https://github.com/giampaolo/psutil)
+* [Flask](http://flask.pocoo.org)
 
 Services and Contents
 =======
