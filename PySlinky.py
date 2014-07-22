@@ -9,9 +9,9 @@ def index():
     return render_template('index.html')
 
 @app.route('/load')
-def load_stress():
+def load_stress(output=None):
     output = main('x**x')
-    return str(output)
+    return render_template('load.html', output=output)
 
 @app.route('/db_entry')
 def db_stress():
