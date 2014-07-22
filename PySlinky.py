@@ -1,4 +1,7 @@
 from flask import Flask, render_template
+import sys
+import subprocess
+from load_stress import main
 app = Flask(__name__)
 
 @app.route('/')
@@ -7,7 +10,8 @@ def index():
 
 @app.route('/load')
 def load_stress():
-    pass
+    output = main('x**x')
+    return str(output)
 
 @app.route('/db_entry')
 def db_stress():
