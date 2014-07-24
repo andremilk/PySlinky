@@ -4,10 +4,6 @@ import subprocess
 from load_stress import main, get_health
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 @app.route('/load')
 @app.route('/load/')
 @app.route('/load/<string:expression>', methods=['GET'])
@@ -20,10 +16,6 @@ def load_stress(expression='x**x'):
 @app.route('/health/<int:now>', methods=['GET'])
 def health(now=0):
     return str(get_health(now))
-
-@app.route('/db_entry')
-def db_stress():
-    pass
 
 if __name__ == '__main__':
     app.debug = True
