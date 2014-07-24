@@ -9,10 +9,16 @@ def index():
     return render_template('index.html')
 
 @app.route('/load')
-def load_stress(output=None):
-    output = main('x**x')
-    return render_template('load.html', output=output)
+@app.route('/load/')
+@app.route('/load/<string:expression>', methods=['GET'])
+def load_stress(expression='x**x'):
+    output = main(expression)
+    return str(output)
 
+@app.route('/health')
+@app.route('/health')
+def health():
+    pass
 @app.route('/db_entry')
 def db_stress():
     pass
