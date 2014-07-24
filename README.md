@@ -13,17 +13,20 @@ Requirements
 * [Flask](http://flask.pocoo.org)
 
 Services and Contents
-=======
+=======   
+Health requests
+   
+     GET /health/ 
+        returns the health since last checked
+     GET /health/1
+        returns current health 
 
-*  mysql database with data to be defined
-    * the main goal here is to test the database scalability, it will run in another server
-*  a simple service to stress the server and return simple codes for better understanding of application health
-    * the application should stress memory, cpu and others (TBD) resources on the server 
-
-Testing it
-=======
-
-One of the tools you might use to test/stress the app is [httperf](http://www.hpl.hp.com/research/linux/httperf).
+Load requests
+  
+     GET /load/
+        stresses the application using the default expression to evaluate (x**x)
+     GET /load/expression
+        stresses the application using the provided expression
 
 Acknowledgement
 =========
