@@ -18,3 +18,9 @@ def main(_expression):
     p = Pool(1)
     load_map = p.map(_load_stress, range(100))
     return get_low_high_average(load_map)
+
+def get_health(now):
+    if now:
+        return psutil.cpu_percent(interval=None)
+    return psutil.cpu_percent(interval=0.1)
+
