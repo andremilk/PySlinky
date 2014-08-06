@@ -11,12 +11,6 @@ def load_stress(expression='x**x'):
     output = main(expression)
     return str(output)
 
-@app.route('/health')
-@app.route('/health/')
-@app.route('/health/<int:now>', methods=['GET'])
-def health(now=0):
-    return str(get_health(now))
-
 if __name__ == '__main__':
     app.debug = True
-    app.run(threaded=True)
+    app.run(host='0.0.0.0', port=5001, threaded=True)
