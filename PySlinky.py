@@ -2,14 +2,17 @@ from flask import Flask, render_template
 import sys
 import subprocess
 from load_stress import main, get_health
-app = Flask(__name__)
+import netifaces as ni
+
+ip = ni.ifaddresses('eth0')[2][0]['addr']
+app = Flask(__name__)i
 
 @app.route('/load')
 @app.route('/load/')
 @app.route('/load/<string:expression>', methods=['GET'])
 def load_stress(expression='x**x'):
-    output = main(expression)
-    return str(output)
+    main(expression)
+    return ip
 
 if __name__ == '__main__':
     app.debug = True
