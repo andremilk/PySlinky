@@ -5,7 +5,7 @@ from load_stress import main, get_health
 import netifaces as ni
 
 ip = ni.ifaddresses('eth0')[2][0]['addr']
-app = Flask(__name__)i
+app = Flask(__name__)
 
 @app.route('/load')
 @app.route('/load/')
