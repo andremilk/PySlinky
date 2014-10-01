@@ -1,5 +1,3 @@
-from multiprocessing import Pool
-import multiprocessing
 import psutil
 
 def _load_stress(x):
@@ -15,8 +13,7 @@ def get_low_high_average(results):
 def main(_expression):
     global expression
     expression = eval('lambda x: {0}'.format(_expression))
-    p = Pool(1)
-    load_map = p.map(_load_stress, range(100))
+    load_map = map(_load_stress, range(100))
     return get_low_high_average(load_map)
 
 def get_health(now):
