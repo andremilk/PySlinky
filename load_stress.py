@@ -14,6 +14,10 @@ def main(_expression):
     global expression
     expression = eval('lambda x: {0}'.format(_expression))
     load_map = map(_load_stress, range(100))
+    load_map = []
+    for x in range(150):
+        load_map.append(_load_stress(x))
+    sum(load_map)
     return get_low_high_average(load_map)
 
 def get_health(now):
